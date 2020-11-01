@@ -111,7 +111,7 @@ const questions = [
         "correct": "Perform transactions in Latin"
     }
 ];
-
+//this makes dom elements upon request 
 let domElements = {
     makeInput: function (i) {
         let input = document.createElement("input");
@@ -136,7 +136,9 @@ let domElements = {
 }
 
 const alertContent = document.getElementById('alertContent');
-const randomizedQuestionsArray = randomizeArray(questions, 10);
+let numOfQuestions = 10;
+//gets 10 random questions from questions array. Can change num of question 
+const randomizedQuestionsArray = randomizeArray(questions, numOfQuestions);
 let questionCounter = 0;
 let score = 0;
 

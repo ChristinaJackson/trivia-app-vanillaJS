@@ -26,7 +26,7 @@ I found this position on the evening of the 28th and with the deadline fast appr
 - [ ] The correct answer must be revealed after a user has submitted their answer. A user can see the score they received at the end of the round
 
 
-## Running the project locally
+## Running the Project Locally
 
 **Installation and Usage:**
 1. Clone the project
@@ -40,6 +40,10 @@ I found this position on the evening of the 28th and with the deadline fast appr
     - `http-server`
     - this will start a local server
     - copy the http address listed in the command line and paste into your browser
+    - run the index.html file to start the app
+
+**Alternatively**
+- After cloning the project, you can use the Live Server extension in VSCode to run the project from the index.html file. [Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 
 ## How it Works
 ![Image of project start page](./projectImages/triviaInAction.gif)
