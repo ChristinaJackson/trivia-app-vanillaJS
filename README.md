@@ -23,7 +23,7 @@ I found this position on the evening of the 28th and with the deadline fast appr
 - [ ] Questions with their multiple choice options must be displayed one at a time. 
 - [ ] Questions should not repeat in a round.
 - [ ] A user can select only 1 answer out of the 4 possible answers.
-- [ ] The correct answer must be revealed after a user has submitted their answer A user can see the score they received at the end of the round
+- [ ] The correct answer must be revealed after a user has submitted their answer. A user can see the score they received at the end of the round
 
 
 ## Running the project locally
@@ -42,17 +42,16 @@ I found this position on the evening of the 28th and with the deadline fast appr
     - copy the http address listed in the command line and paste into your browser
 
 ## How it Works
-include how to play
+![Image of project start page](./projectImages/triviaInAction.gif)
+
+
 ## Features to be Added
 
+- Unit tests
 - Build with React
 - Improve accessibility of Trivia App
 - Ability to skip question and have it repeated at the end
 - Prevent page refresh once Trivia App is started
 - Connect to database and allow for a leaderboard 
-
-
-
-**All discussions around this can be handled in Slack**
 
 
