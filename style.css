@@ -94,7 +94,7 @@ label.radio-label.correct {
   border-top: solid #DCDCF9 1px;
 }
 
-#answers li:hover,#submitBtn:hover{
+#answers li:hover, #submitButton:hover, #nextBtn:hover, #finishBtn:hover{
   cursor: pointer;
 }
 
