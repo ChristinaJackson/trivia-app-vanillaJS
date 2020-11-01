@@ -129,14 +129,14 @@ let domElements = {
         return label
     },
     makeButton: function (buttonText) {
-        let button = document.createElement('button');
+        let button = document.createElement('a');
         button.textContent = buttonText
         return button
     }
 }
 
 
-const randomizedQuestionsArray = randomizeArray(questions, 2);
+const randomizedQuestionsArray = randomizeArray(questions, 10);
 let questionCounter = 0;
 let score = 0;
 
@@ -161,6 +161,7 @@ function randomizeArray(array, maxLength) {
     let newArray = [];
     while (newArray.length < maxLength) {
         let randomIndex = Math.floor(Math.random() * array.length);
+        console.log(randomIndex)
         newArray.push(array[randomIndex]);
         array.splice(randomIndex, 1);
     };
@@ -186,7 +187,6 @@ function displayCard(currentQuestion, answersArray, correctAnswer) {
     questionNum.textContent = `${questionCounter + 1} of ${randomizedQuestionsArray.length}`
     question.textContent = currentQuestion;
 
-    localStorage.setItem('score', JSON.stringify(score))
 
     for (let i = 0; i < answersArray.length; i++) {
         let li = document.createElement("li");
@@ -228,10 +228,8 @@ function displayCard(currentQuestion, answersArray, correctAnswer) {
             reviewAnswerChoice(choices, selectedAnswer, correctAnswer, answerResult);
             let finishButton = domElements.makeButton('Finish');
             finishButton.id = "finishBtn";
+            finishButton.href = '/end.html'
             cardBtn.appendChild(finishButton);
-            finishButton.addEventListener('click', (e) => {
-                endGame()
-            })
         }
         nextButton.addEventListener('click', (e) => {
             questionCounter++
@@ -244,9 +242,6 @@ function displayCard(currentQuestion, answersArray, correctAnswer) {
     });
 };
 
-displayButton = (buttonType) => {
-
-}
 
 function getAnswerChoice(choices) {
     for (i = 0; i < choices.length; i++) {
@@ -260,6 +255,7 @@ function getAnswerChoice(choices) {
 answerCheck = (selectedAnswer, correctAnswer) => {
     if (selectedAnswer === correctAnswer) {
         score++
+        localStorage.setItem('score', JSON.stringify(score));
         return true
     } else if (selectedAnswer === undefined) {
         return undefined
@@ -281,23 +277,6 @@ reviewAnswerChoice = (choices, selectedAnswer, correctAnswer, status) => {
     }
 }
 
-function endGame() {
-    window.location.assign('/end.html')
-    let currentFinalScore = localStorage.getItem('score');
-    let highScore = localStorage.getItem('highScore');
-    // console.log(getHighScore)
-    if (!highScore) {
-        localStorage.setItem('highScore', currentFinalScore);
-        console.log('youre first to play')
-    } else if (highScore > currentFinalScore) {
-        console.log('someone did better')
-    } else if (highScore === currentFinalScore) {
-        console.log('you tied')
-    } else {
-        localStorage.setItem('highScore', currentFinalScore)
-        console.log('you win')
-    }
-}
 
 
 

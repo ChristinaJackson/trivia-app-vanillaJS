@@ -10,11 +10,18 @@
 </head>
 <body>
     <header>
-        <h1>Super Awesome Trivia Game</h1>
+        <h1 id="header">Super Awesome Trivia Game</h1>
     </header>
     <main>
-        <h2>End</h2>
-        <a href='start.html'>Play again</a>
+        <h2>End.</h2>
+        <h3 id='endGameStatus'></h3>
+        <div id='scoreLists'>
+            <p>Your High Score: <span id="yourScore"> </span></p>
+            <p>Previous High Score: <span id="previousScore"> </span></p>
+        </div>
+        <a href='/start.html'>Play again</a>
     </main>
+    <script src="endgame.js"></script>
+    <!-- <script src="script.js"></script> -->
 </body>
 </html>
