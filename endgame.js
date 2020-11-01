@@ -2,6 +2,7 @@ if (window.location.pathname === '/end.html') { updateGameStats() };
 
 const resetScoresButton = document.getElementById('reset');
 
+//updates final page scores and sets local storage values
 function updateGameStats() {
     let currentFinalScore = localStorage.getItem('score');
     let highScore = localStorage.getItem('highScore');
@@ -37,6 +38,7 @@ function updateGameStats() {
     }
 };
 
+//clear local storage to reset game scores
 resetScoresButton.addEventListener('click', (e) => {
     localStorage.clear()
 });

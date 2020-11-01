@@ -137,21 +137,25 @@ let domElements = {
 
 const alertContent = document.getElementById('alertContent');
 let numOfQuestions = 10;
-//gets 10 random questions from questions array. Can change num of question 
+//gets 10 random questions from questions array. Can change num of questions by editing numOfQuestions variable
 const randomizedQuestionsArray = randomizeArray(questions, numOfQuestions);
+
+//initialize game counters
 let questionCounter = 0;
 let score = 0;
 
 
 if (window.location.pathname === '/game.html') { startGame() }
 
+//gets the first question and updates question count in game
 function startGame() {
     localStorage.setItem('score', 0);
-    getQuestion(randomizedQuestionsArray[questionCounter])
+    getQuestion(randomizedQuestionsArray[questionCounter]);
     const gameStats = document.getElementById('status');
     gameStats.style.display = 'block';
 }
 
+//parsing out question and answers
 function getQuestion(question) {
     let questionText = question.question;
     let correctAnswer = question.correct;
@@ -170,6 +174,7 @@ function randomizeArray(array, maxLength) {
     return newArray
 }
 
+//randomizes the answer choices position 
 function buildAnswers(question, correctAnswer) {
     let answersArray = question.incorrect;
     answersArray.push(correctAnswer);
@@ -177,6 +182,8 @@ function buildAnswers(question, correctAnswer) {
     return randomizedAnswers
 }
 
+//displays the card / question and add event listeners
+//Probably should be more than one function 
 function displayCard(currentQuestion, answersArray, correctAnswer) {
     const question = document.getElementById('question');
     const answersUl = document.getElementById('answers');
@@ -184,15 +191,13 @@ function displayCard(currentQuestion, answersArray, correctAnswer) {
     const questionNum = document.getElementById('questionNumber');
     const alertContent = document.getElementById('alert-content');
 
-
-
     card.style.display = 'block';
     answersUl.innerHTML = '';
     cardButton.innerHTML = '';
     questionNum.textContent = `${questionCounter + 1} of ${randomizedQuestionsArray.length}`
     question.textContent = currentQuestion;
 
-
+    //appends the answer choices to the ul as inputs with label
     for (let i = 0; i < answersArray.length; i++) {
         let li = document.createElement("li");
         let answerText = answersArray[i];
@@ -218,7 +223,7 @@ function displayCard(currentQuestion, answersArray, correctAnswer) {
         let choices = answersUl.getElementsByTagName('input');
         let selectedAnswer = getAnswerChoice(choices);
         let answerResult = answerCheck(selectedAnswer, correctAnswer);
-
+        //displays buttons based on answer choices and game conditions
         if (questionCounter + 1 !== randomizedQuestionsArray.length && answerResult !== undefined) {
             submitButton.style.display = 'none';
             alertContent.style.display = "none";
@@ -233,7 +238,7 @@ function displayCard(currentQuestion, answersArray, correctAnswer) {
             reviewAnswerChoice(choices, selectedAnswer, correctAnswer);
             let finishButton = domElements.makeButton('Finish');
             finishButton.id = "finishBtn";
-            finishButton.href = '/end.html'
+            finishButton.href = '/end.html';
             cardBtn.appendChild(finishButton);
         }
 
@@ -241,13 +246,13 @@ function displayCard(currentQuestion, answersArray, correctAnswer) {
     nextButton.addEventListener('click', (e) => {
         questionCounter++
         if (questionCounter !== randomizedQuestionsArray.length) {
-            getQuestion(randomizedQuestionsArray[questionCounter])
+            getQuestion(randomizedQuestionsArray[questionCounter]);
             nextButton.style.display = 'none';
         }
     });
 };
 
-
+//gets and returns the selected answer choice
 function getAnswerChoice(choices) {
     for (i = 0; i < choices.length; i++) {
         if (choices[i].checked) {
@@ -257,10 +262,11 @@ function getAnswerChoice(choices) {
     };
 };
 
+//checks if answer selected is correct and increments score accordingly
 answerCheck = (selectedAnswer, correctAnswer) => {
     if (selectedAnswer === correctAnswer) {
         score++
-        console.log(score)
+        console.log(score);
         localStorage.setItem('score', score);
         return true
     } else if (selectedAnswer === undefined) {
@@ -270,6 +276,7 @@ answerCheck = (selectedAnswer, correctAnswer) => {
     }
 }
 
+//provides user visual feedback on the correctness of choice 
 reviewAnswerChoice = (choices, selectedAnswer, correctAnswer) => {
     for (i = 0; i < choices.length; i++) {
         if (choices[i].textContent === selectedAnswer && selectedAnswer !== correctAnswer) {
