@@ -136,7 +136,7 @@ let domElements = {
 }
 
 const alertContent = document.getElementById('alertContent');
-const randomizedQuestionsArray = randomizeArray(questions, 10);
+const randomizedQuestionsArray = randomizeArray(questions, 2);
 let questionCounter = 0;
 let score = 0;
 
@@ -144,6 +144,7 @@ let score = 0;
 if (window.location.pathname === '/game.html') { startGame() }
 
 function startGame() {
+    localStorage.setItem('score', 0);
     getQuestion(randomizedQuestionsArray[questionCounter])
     const gameStats = document.getElementById('status');
     gameStats.style.display = 'block';
@@ -216,34 +217,31 @@ function displayCard(currentQuestion, answersArray, correctAnswer) {
         let selectedAnswer = getAnswerChoice(choices);
         let answerResult = answerCheck(selectedAnswer, correctAnswer);
 
-        if (e.target === submitButton && questionCounter + 1 !== randomizedQuestionsArray.length) {
+        if (questionCounter + 1 !== randomizedQuestionsArray.length && answerResult !== undefined) {
             submitButton.style.display = 'none';
-            if (answerResult === true || answerResult === false) {
-                alertContent.style.display = "none";
-                cardButton.appendChild(nextButton);
-                nextButton.style.display = 'block';
-                console.log(answerResult)
-                reviewAnswerChoice(choices, selectedAnswer, correctAnswer, answerResult)
-            } else if (answerResult === undefined) {
-                submitButton.style.display = 'block';
-                alertContent.style.display = "block";
-            }
-        } else {
+            alertContent.style.display = "none";
+            cardButton.appendChild(nextButton);
+            nextButton.style.display = 'block';
+            reviewAnswerChoice(choices, selectedAnswer, correctAnswer);
+        } else if (answerResult === undefined) {
+            submitButton.style.display = 'block';
+            alertContent.style.display = "block";
+        } else if (questionCounter + 1 === randomizedQuestionsArray.length) {
             submitButton.style.display = 'none';
-            reviewAnswerChoice(choices, selectedAnswer, correctAnswer, answerResult);
+            reviewAnswerChoice(choices, selectedAnswer, correctAnswer);
             let finishButton = domElements.makeButton('Finish');
             finishButton.id = "finishBtn";
             finishButton.href = '/end.html'
             cardBtn.appendChild(finishButton);
         }
-        nextButton.addEventListener('click', (e) => {
-            questionCounter++
-            if (questionCounter !== randomizedQuestionsArray.length) {
-                getQuestion(randomizedQuestionsArray[questionCounter])
-                nextButton.style.display = 'none';
-            }
-        });
 
+    });
+    nextButton.addEventListener('click', (e) => {
+        questionCounter++
+        if (questionCounter !== randomizedQuestionsArray.length) {
+            getQuestion(randomizedQuestionsArray[questionCounter])
+            nextButton.style.display = 'none';
+        }
     });
 };
 
@@ -260,7 +258,8 @@ function getAnswerChoice(choices) {
 answerCheck = (selectedAnswer, correctAnswer) => {
     if (selectedAnswer === correctAnswer) {
         score++
-        localStorage.setItem('score', JSON.stringify(score));
+        console.log(score)
+        localStorage.setItem('score', score);
         return true
     } else if (selectedAnswer === undefined) {
         return undefined
@@ -269,7 +268,7 @@ answerCheck = (selectedAnswer, correctAnswer) => {
     }
 }
 
-reviewAnswerChoice = (choices, selectedAnswer, correctAnswer, status) => {
+reviewAnswerChoice = (choices, selectedAnswer, correctAnswer) => {
     for (i = 0; i < choices.length; i++) {
         if (choices[i].textContent === selectedAnswer && selectedAnswer !== correctAnswer) {
             choices[i].nextSibling.classList.add("wrong");

@@ -45,6 +45,9 @@ main{
     min-width: 50vh;
     padding: 1rem;
 }
+main a{
+    margin-bottom: 1rem;
+}
 
 #scoreLists{
     text-align: center;
