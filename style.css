@@ -126,6 +126,17 @@ label.radio-label.correct {
   border-radius: 3px;
 }
 
+@media only screen and (max-width: 600px) {
+  header h1{
+   font-size: 3rem;
+   margin-bottom: 1rem;
+  }
+
+  main{
+    max-width: 80vw;
+    margin-left: 100rem;
+  }
+} 
 
 
 
