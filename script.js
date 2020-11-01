@@ -136,7 +136,7 @@ let domElements = {
 }
 
 const alertContent = document.getElementById('alertContent');
-const randomizedQuestionsArray = randomizeArray(questions, 2);
+const randomizedQuestionsArray = randomizeArray(questions, 10);
 let questionCounter = 0;
 let score = 0;
 
