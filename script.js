@@ -135,7 +135,7 @@ let domElements = {
     }
 }
 
-
+const alertContent = document.getElementById('alertContent');
 const randomizedQuestionsArray = randomizeArray(questions, 10);
 let questionCounter = 0;
 let score = 0;
@@ -161,7 +161,6 @@ function randomizeArray(array, maxLength) {
     let newArray = [];
     while (newArray.length < maxLength) {
         let randomIndex = Math.floor(Math.random() * array.length);
-        console.log(randomIndex)
         newArray.push(array[randomIndex]);
         array.splice(randomIndex, 1);
     };
@@ -176,10 +175,13 @@ function buildAnswers(question, correctAnswer) {
 }
 
 function displayCard(currentQuestion, answersArray, correctAnswer) {
-    let question = document.getElementById('question');
-    let answersUl = document.getElementById('answers');
-    let cardButton = document.getElementById('cardBtn');
-    let questionNum = document.getElementById('questionNumber');
+    const question = document.getElementById('question');
+    const answersUl = document.getElementById('answers');
+    const cardButton = document.getElementById('cardBtn');
+    const questionNum = document.getElementById('questionNumber');
+    const alertContent = document.getElementById('alert-content');
+
+
 
     card.style.display = 'block';
     answersUl.innerHTML = '';
@@ -213,15 +215,18 @@ function displayCard(currentQuestion, answersArray, correctAnswer) {
         let choices = answersUl.getElementsByTagName('input');
         let selectedAnswer = getAnswerChoice(choices);
         let answerResult = answerCheck(selectedAnswer, correctAnswer);
+
         if (e.target === submitButton && questionCounter + 1 !== randomizedQuestionsArray.length) {
             submitButton.style.display = 'none';
             if (answerResult === true || answerResult === false) {
+                alertContent.style.display = "none";
                 cardButton.appendChild(nextButton);
                 nextButton.style.display = 'block';
+                console.log(answerResult)
                 reviewAnswerChoice(choices, selectedAnswer, correctAnswer, answerResult)
             } else if (answerResult === undefined) {
                 submitButton.style.display = 'block';
-                reviewAnswerChoice(choices, selectedAnswer, correctAnswer, answerResult);
+                alertContent.style.display = "block";
             }
         } else {
             submitButton.style.display = 'none';
@@ -265,14 +270,11 @@ answerCheck = (selectedAnswer, correctAnswer) => {
 }
 
 reviewAnswerChoice = (choices, selectedAnswer, correctAnswer, status) => {
-    if (status === undefined) {
-    } else {
-        for (i = 0; i < choices.length; i++) {
-            if (choices[i].textContent === selectedAnswer && selectedAnswer !== correctAnswer) {
-                choices[i].nextSibling.classList.add("wrong");
-            } else if (choices[i].textContent === correctAnswer) {
-                choices[i].nextSibling.classList.add("correct");
-            }
+    for (i = 0; i < choices.length; i++) {
+        if (choices[i].textContent === selectedAnswer && selectedAnswer !== correctAnswer) {
+            choices[i].nextSibling.classList.add("wrong");
+        } else if (choices[i].textContent === correctAnswer) {
+            choices[i].nextSibling.classList.add("correct");
         }
     }
 }

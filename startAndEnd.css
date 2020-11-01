@@ -3,10 +3,12 @@ body{
     display: flex;
     flex-direction: column;
 }
+
 header{
     padding: 4rem;
     text-align: center;
 }
+
 a{
     color: black;
     text-decoration: none;
@@ -15,8 +17,8 @@ a{
     background-color: #FF6B6C;
     color: #FFFBFA;
     border-radius: 3px;
-
 }
+
 a:hover{
     cursor: pointer;
 }
@@ -26,11 +28,13 @@ h1{
     color: #FFFBFA;
     font-size: 4rem;
 }
+
 h2{
     font-size: 2rem;
     margin: 1rem;
     margin-bottom: 1rem;
 }
+
 main{
     border-radius: 3px;
     background-color: #FFFBFA;
@@ -39,13 +43,14 @@ main{
     align-items: center;
     margin: 2rem auto;
     min-width: 50vh;
-    /* max-width: 500px; */
     padding: 1rem;
 }
+
 #scoreLists{
     text-align: center;
     margin-bottom: 1rem;
 }
+
 #endGameStatus{
     font-size: 2rem;
     margin-bottom: 1rem;

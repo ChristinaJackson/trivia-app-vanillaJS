@@ -1,109 +1,131 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* border-radius: 3px; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  }
-
-  body{
-    background-color: #0a0a38;
-    background-image: url('./low-contrast-linen.png');
-    font-family: helvetica;
-    
-  }
-
-  h1,h2,h3,h4,h5{
-    font-family: 'Roboto', sans-serif;
-  }
-
-  ul{
-    list-style: none;
-  }
-  input {
-    visibility:hidden;
-    margin-left: -13px;
-  }
-  label {
-    cursor: pointer;
-    width: 100%;
-    display: block;
-    padding: 1rem;
-  }
-  input:checked + label {
-    /* background: #20A4F3; */
-    background-color: rgba(32,164,243,0.5);
-  }
+body{
+  background-color: #0a0a38;
+  background-image: url('./low-contrast-linen.png');
+  font-family: helvetica;
   
-  label.radio-label.wrong {
-      /* background: #AE093E; */
-      background-color: rgba(213,11,75,0.7);
-  }
-  label.radio-label.correct {
-      background: #13CA91;
-  
-  }
+}
 
-  #status{
-    border-radius: 3px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 50vw;
-    min-width: 300px;
-    margin: 3rem auto 1rem auto;
-    padding: 1rem;
-    background-color: #FF6B6C;
-    color: whitesmoke;
-    font-size: 0.8rem;
-  }
-  #card{
-    border-radius: 3px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50vw;
-    min-width: 300px;
-    margin: 1rem auto;
-    background-color: white;
-    color:#0a0a38;
-  }
-  #card h2{
-    padding: 1rem 2rem;
-    text-align: center;
-    border-radius: 3px 3px 0 0;
-    background-color: #B9B9F3;
-    font-size: 1rem;
-  }
+h1,h2,h3,h4,h5{
+  font-family: 'Roboto', sans-serif;
+}
 
-  #cardBtn{
-    display: flex;
-    justify-content: center;
-  }
-   #answers li{
-    border-bottom: solid #DCDCF9 1px;
-    text-align: center;
-    display: flex;
-  /*   background-color: #F3F4F6; */
-  }
-  #answers li:first-child{
-    border-top: solid #DCDCF9 1px;
-  }
-  #answers li:hover,#submitBtn:hover{
-    cursor: pointer;
-  }
-  #answers {
-    width: 100%;
-  }
-  #submitButton, #nextBtn, #finishBtn{
-    border-radius: 3px;
-    margin: 1rem;
-    border: solid #4040DD 1px;
-    padding: 0.5rem 1rem;
-    /* background-color: darkcyan; */
-    background-color: #9696ED;
-    background-color: #4040DD;
-    color: white;
-    font-size: 1rem;
-  }
+ul{
+  list-style: none;
+}
+
+input {
+  visibility:hidden;
+  margin-left: -13px;
+}
+
+label {
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  padding: 1rem;
+}
+
+input:checked + label {
+  background-color: rgba(32,164,243,0.5);
+}
+
+label.radio-label.wrong {
+    background-color: rgba(213,11,75,0.7);
+}
+label.radio-label.correct {
+    background: #13CA91;
+}
+
+#status{
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50vw;
+  min-width: 300px;
+  margin: 3rem auto 1rem auto;
+  padding: 1rem;
+  background-color: #FF6B6C;
+  background-color:#a2f6da;
+  color: whitesmoke;
+  color: black;
+  font-size: 0.8rem;
+}
+
+#card{
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  min-width: 300px;
+  margin: 1rem auto;
+  background-color: white;
+  color:#0a0a38;
+}
+
+#card h2{
+  padding: 1rem 2rem;
+  text-align: center;
+  border-radius: 3px 3px 0 0;
+  background-color: #B9B9F3;
+  font-size: 1rem;
+}
+
+#cardBtn{
+  display: flex;
+  justify-content: center;
+}
+
+#answers li{
+  border-bottom: solid #DCDCF9 1px;
+  text-align: center;
+  display: flex;
+}
+
+#answers li:first-child{
+  border-top: solid #DCDCF9 1px;
+}
+
+#answers li:hover,#submitBtn:hover{
+  cursor: pointer;
+}
+
+#answers {
+  width: 100%;
+}
+
+#submitButton, #nextBtn, #finishBtn{
+  border-radius: 3px;
+  margin: 1rem;
+  border: solid #4040DD 1px;
+  padding: 0.5rem 1rem;
+  background-color: #9696ED;
+  background-color: #4040DD;
+  color: white;
+  font-size: 1rem;
+}
+
+#alert-content {
+  display: none;
+  text-align: center;
+  margin: 1rem auto; 
+  padding: 1rem;
+  width: 50vw;
+  min-width: 300px;
+  background-color:#a2f6da;
+  background-color: #FF6B6C;
+  color: #fefefe;
+  border-radius: 3px;
+}
+
+
+
+
