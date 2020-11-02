@@ -5,7 +5,7 @@
 This project was built as part of the application process for the position of Apprentice Software Engineer at Tandem. The application process opened on Monday, October 26, 2020 and closed Sunday, November 1, 2020 at 11:59 PM CST. 
 
 ## Process
-I found this position on the evening of the 28th and with the deadline fast approaching I chose to build the project in Vanilla JavaScript. I made this decision because I have spent a lot of time working with JavaScript fundamentals and knew this was the fastest way for me to get the project up and running.
+I found this position on the evening of the 28th and with the deadline fast approaching, I chose to build the project in Vanilla JavaScript and HTML/CSS. I made this decision because I have spent a lot of time working with JavaScript fundamentals and knew this was the fastest way for me to get the project up and running while also looking nice.
 
 ## Project Brief
 ### Goal
@@ -32,18 +32,18 @@ I found this position on the evening of the 28th and with the deadline fast appr
 1. Clone the project
     - To clone this project, follow these instructions: [GitHub Documentation](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 2. Make sure you have Node.js downloaded: 
-    - In CMD run `node -v`
+    - In the command line(CMD) `node -v`
     - If not you can download it here [Node.js](https://nodejs.org/en/download/)
-3. In the command line(CMD) run
+3. In CMD run
      - `npm install http-server -g`
 4. Navigate to the project folder in the CMD and run
     - `http-server`
-    - this will start a local server
-    - copy the http address listed in the command line and paste into your browser
-    - run the index.html file to start the app
+    - This will start a local server
+    - Copy the http address listed in the command line and paste into your browser
+    - Run the index.html file to start the app
 
 **Alternatively**
-- After cloning the project, you can use the Live Server extension in VSCode to run the project from the index.html file. [Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+- After cloning the project in step 1, you can use the Live Server extension in VSCode to run the project from the index.html file. [Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 
 ## How it Works
 ![Image of project start page](./projectImages/triviaInAction.gif)
