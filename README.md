@@ -12,6 +12,7 @@
 - [Installation](#Running)
 - [How it works](#How-it-Works)
 - [Features to be Added](#Features-to-be-Added)
+- [Quirks](#Quirks)
 - [Technologies](#Technologies)
 
 
@@ -64,16 +65,22 @@ I found this position on the evening of the 28th and with the deadline fast appr
 
 ## How it Works
 ![Image of project start page](./projectImages/triviaInAction.gif)
-
+- The start button initializes 10 random questions from a question bank. 
+- Users can only select one answer and when submitted they are provided realtime feedback on the answer choice.
+- If no answer choice is selected users see feedback that prompts them to make a choice
+- At the end of the round scores are compared in local storage to previous high scores. A user can choose to start another game to try to beat the score or clear all previous results.
 
 ## Features to be Added
 
 - Unit tests
 - Build with React
-- Improve accessibility of Trivia App
+- Improve accessibility of Trivia App 
 - Ability to skip question and have it repeated at the end
-- Prevent page refresh once Trivia App is started
+- Prevent page refresh once Trivia App is started (no cheating!)
 - Connect to database and allow for a leaderboard 
+
+## Quirks
+- Currently users can continue to click answer choices and see highlighting of what is selected. I would like to remove this after answer submission. 
 
 ## Technologies
 - JavaScript
