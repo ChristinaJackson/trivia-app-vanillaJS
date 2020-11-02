@@ -1,6 +1,7 @@
 # Trivia App in Vanilla JS
-![Image of project start page](./projectImages/startpage.png)
 **This project is automatically deployed with commits here: [Live Project](https://elastic-curie-7b6550.netlify.app/)**
+
+![Image of project start page](./projectImages/startpage.png)
 
 # Table of Contents
 - [Description](#Description)
