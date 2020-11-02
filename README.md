@@ -12,6 +12,8 @@
 - [Installation](#Running)
 - [How it works](#How-it-Works)
 - [Features to be Added](#Features-to-be-Added)
+- [Technologies](#Technologies)
+
 
 
 
@@ -73,4 +75,8 @@ I found this position on the evening of the 28th and with the deadline fast appr
 - Prevent page refresh once Trivia App is started
 - Connect to database and allow for a leaderboard 
 
-
+## Technologies
+- JavaScript
+- HTML
+- CSS
+- Hosted on Netlify
