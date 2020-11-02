@@ -1,6 +1,21 @@
 # Trivia App in Vanilla JS
 ![Image of project start page](./projectImages/startpage.png)
 **This project is automatically deployed with commits here: [Live Project](https://elastic-curie-7b6550.netlify.app/)**
+
+# Table of Contents
+- [Description](#Description)
+- [Process](#Process)
+- [Project Brief ](#goal)
+    * [Assumptions](#Assumptions)
+    * [Acceptance Criteria](#Acceptance-Criteria)
+
+- [Installation](#Running)
+- [How it works](#How-it-Works)
+- [Features to be Added](#Features-to-be-Added)
+
+
+
+
 ## Description
 This project was built as part of the application process for the position of Apprentice Software Engineer at Tandem. The application process opened on Monday, October 26, 2020 and closed Sunday, November 1, 2020 at 11:59 PM CST. 
 
@@ -19,11 +34,11 @@ I found this position on the evening of the 28th and with the deadline fast appr
 - Results can update on form submit, button click, or any interaction you choose
 - Trivia data such as the questions, correct and incorrect answers provided via a JSON file
 ### Acceptance Criteria
-- [ ] A user can view questions.
-- [ ] Questions with their multiple choice options must be displayed one at a time. 
-- [ ] Questions should not repeat in a round.
-- [ ] A user can select only 1 answer out of the 4 possible answers.
-- [ ] The correct answer must be revealed after a user has submitted their answer. A user can see the score they received at the end of the round
+- [X] A user can view questions.
+- [X] Questions with their multiple choice options must be displayed one at a time. 
+- [X] Questions should not repeat in a round.
+- [X] A user can select only 1 answer out of the 4 possible answers.
+- [X] The correct answer must be revealed after a user has submitted their answer. A user can see the score they received at the end of the round
 
 
 ## Running the Project Locally
