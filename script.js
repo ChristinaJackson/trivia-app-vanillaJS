@@ -266,7 +266,6 @@ function getAnswerChoice(choices) {
 answerCheck = (selectedAnswer, correctAnswer) => {
     if (selectedAnswer === correctAnswer) {
         score++
-        console.log(score);
         localStorage.setItem('score', score);
         return true
     } else if (selectedAnswer === undefined) {

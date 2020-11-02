@@ -11,9 +11,9 @@ function updateGameStats() {
     let previousScore = document.getElementById('previousScore');
     let previousScoreP = document.getElementById('previousScoreP');
 
+
     yourScore.textContent = currentFinalScore;
     previousScore.textContent = highScore;
-    console.log('current score' + currentFinalScore)
 
     if (!highScore && !currentFinalScore) {
         localStorage.setItem('highScore', 0);
@@ -21,10 +21,10 @@ function updateGameStats() {
         endGameStatus.textContent = 'You are the first to play! So...you win?';
         yourScore.textContent = 0;
         previousScoreP.style.display = 'none';
-    } else if (!currentFinalScore) {
+    } else if (!currentFinalScore && highScore) {
         localStorage.setItem('score', 0);
         yourScore.textContent = 0;
-    } else if (!highScore) {
+    } else if (!highScore && currentFinalScore) {
         localStorage.setItem('highScore', currentFinalScore);
         endGameStatus.textContent = 'You are the first to play! So...you win?';
         previousScoreP.style.display = 'none';
@@ -32,7 +32,7 @@ function updateGameStats() {
         endGameStatus.textContent = 'Oh no! You Lost!';
     } else if (highScore === currentFinalScore) {
         endGameStatus.textContent = 'You tied the best score!';
-    } else {
+    } else if (highScore < currentFinalScore) {
         localStorage.setItem('highScore', currentFinalScore);
         endGameStatus.textContent = 'You are the winner!';
     }
