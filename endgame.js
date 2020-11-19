@@ -1,42 +1,45 @@
-if (window.location.pathname === '/end.html') { updateGameStats() };
+if (window.location.pathname === '/end.html') { updateGameStatsDisplay() };
 
 const resetScoresButton = document.getElementById('reset');
 
 //updates final page scores and sets local storage values
-function updateGameStats() {
-    let currentFinalScore = localStorage.getItem('score');
-    let highScore = localStorage.getItem('highScore');
-    let endGameStatus = document.getElementById('endGameStatus');
+function updateGameStatsDisplay() {
+    let currentFinalScore = parseInt(localStorage.getItem('score'));
+    let highScore = parseInt(localStorage.getItem('highScore'));
     let yourScore = document.getElementById('yourScore');
     let previousScore = document.getElementById('previousScore');
-    let previousScoreP = document.getElementById('previousScoreP');
-
 
     yourScore.textContent = currentFinalScore;
     previousScore.textContent = highScore;
 
-    if (!highScore && !currentFinalScore) {
+    updateGameResults(highScore, currentFinalScore)
+
+}
+
+function updateGameResults(highScore, currentScore) {
+    const endGameStatus = document.getElementById('endGameStatus');
+    const previousScoreP = document.getElementById('previousScoreP');
+
+    if (!highScore && currentScore === 0) {
         localStorage.setItem('highScore', 0);
         localStorage.setItem('score', 0);
-        endGameStatus.textContent = 'You are the first to play! So...you win?';
+        endGameStatus.textContent = 'You got none correct :(';
         yourScore.textContent = 0;
         previousScoreP.style.display = 'none';
-    } else if (!currentFinalScore && highScore) {
-        localStorage.setItem('score', 0);
-        yourScore.textContent = 0;
-    } else if (!highScore && currentFinalScore) {
-        localStorage.setItem('highScore', currentFinalScore);
-        endGameStatus.textContent = 'You are the first to play! So...you win?';
+    } else if (!highScore && currentScore) {
+        localStorage.setItem("highScore", currentScore);
         previousScoreP.style.display = 'none';
-    } else if (highScore > currentFinalScore) {
-        endGameStatus.textContent = 'Oh no! You Lost!';
-    } else if (highScore === currentFinalScore) {
-        endGameStatus.textContent = 'You tied the best score!';
-    } else if (highScore < currentFinalScore) {
-        localStorage.setItem('highScore', currentFinalScore);
+        endGameStatus.textContent = 'You are the first to play! So...you win?';
+    } else if (highScore && !currentScore || highScore > currentScore) {
+        yourScore.textContent = 0;
+        endGameStatus.textContent = 'You can do better!';
+    } else if (highScore < currentScore) {
+        localStorage.setItem('highScore', currentScore);
         endGameStatus.textContent = 'You are the winner!';
+    } else if (highScore === currentScore) {
+        endGameStatus.textContent = 'You tied the best score';
     }
-};
+}
 
 //clear local storage to reset game scores
 resetScoresButton.addEventListener('click', (e) => {
