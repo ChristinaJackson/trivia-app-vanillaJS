@@ -30,9 +30,12 @@ function updateGameResults(highScore, currentScore) {
         localStorage.setItem("highScore", currentScore);
         previousScoreP.style.display = 'none';
         endGameStatus.textContent = 'You are the first to play! So...you win?';
-    } else if (highScore && !currentScore || highScore > currentScore) {
+    } else if (highScore && !currentScore) {
         yourScore.textContent = 0;
         endGameStatus.textContent = 'You can do better!';
+    } else if (highScore > currentScore) {
+        yourScore.textContent = currentScore;
+        endGameStatus.textContent = 'You lost!';
     } else if (highScore < currentScore) {
         localStorage.setItem('highScore', currentScore);
         endGameStatus.textContent = 'You are the winner!';
